@@ -1,0 +1,59 @@
+
+func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    
+return "Section Title \(section)"
+}
+    
+override func didReceiveMemoryWarning() {
+super.didReceiveMemoryWarning()
+// Dispose of any resources that can be recreated.
+}
+    
+func numberOfSections(in tableView: UITableView) -> Int {
+return 5
+}
+    
+func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+return 1
+}
+   
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+
+        // code for adding centered title
+        headerView.backgroundColor = UIColor.white
+           
+        let headerLabel = UILabel(frame: CGRect(x: 15, y: 15, width:
+            tableView.bounds.size.width, height: -10))
+
+        headerLabel.textColor = UIColor.black
+        headerLabel.text = "RECENT ITEM" //titlesList[section]
+        headerLabel.textAlignment = .left
+        headerView.addSubview(headerLabel)
+
+        // code for adding button to right corner of section header
+   /*     let showHideButton: UIButton = UIButton(frame: CGRect(x:headerView.frame.size.width - 50, y:0, width:100, height:28))
+        showHideButton.setTitle("Show Closed", for: .normal)
+        showHideButton.backgroundColor = UIColor.blue
+       // showHideButton.addTarget(self, action: #selector(btnShowHideTapped), for: .touchUpInside)
+*/
+       // headerView.addSubview(showHideButton)
+
+        return headerView
+    }
+    
+    
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+if let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell
+{
+return cell
+}
+    
+func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 250
+   // return UITableView.automaticDimension
+             }
+return UITableViewCell()
+}
+}
